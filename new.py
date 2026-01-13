@@ -1,8 +1,9 @@
 import requests 
-url="https://api.weatherapi.com/v1/current.json?key=e942dbeb75424295b4e94030242510&q=noida"
+print("ENTER A CITY NAME : ")
+inp = input()
+url=(f"https://api.weatherapi.com/v1/current.json?key=e942dbeb75424295b4e94030242510&q={inp}")
 response = requests.get(url)
 data = response.json()
-print(data)
 print()
 print(f"TEMPERATURE : {data['current']['temp_c']}'C")
 print(f"HUMIDITY : {data['current']['humidity']}")
