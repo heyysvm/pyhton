@@ -1,7 +1,7 @@
-import requests 
-print("ENTER A CITY NAME : ")
-inp = input()
-url=(f"https://api.weatherapi.com/v1/current.json?key=e942dbeb75424295b4e94030242510&q={inp}")
+import requests
+# print("ENTER A CITY NAME : ")
+# inp = input()
+url=("https://api.weatherapi.com/v1/current.json?key=e942dbeb75424295b4e94030242510&q=patna")
 response = requests.get(url)
 data = response.json()
 print()
