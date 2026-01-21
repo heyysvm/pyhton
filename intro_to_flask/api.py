@@ -36,9 +36,9 @@ def get_product_by_name(product_name):
 @app.route('/products/search/<query>')
 def get_product_by_search(query):
     for product in products:
-        if product['name'].lower().startswith(query.lower()):
+        if product['name'].lower().startswith(query.lower()): 
             return product
-    return {"Error : Product Not Found"}
+    return {"Error : Product Not Found"} 
 
 # @app.route('/products/search')
 # def search_products():
