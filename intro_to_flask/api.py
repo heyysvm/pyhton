@@ -14,9 +14,24 @@ products =[
 def get_load():
     return "Welcome !!"
 
-@app.route('/products')
+@app.route('/products', methods=['GET'])
 def get_products():
-    return products
+  return products
+
+@app.route('/products/<product_id>')
+def get_product(product_id):
+    product_id=int(product_id)
+    for product in products:
+        if product['id']==product_id:
+            return product
+    return{"error":"Product Not Found"}
+
+@app.route('/products/name/<product_name>')
+def get_product_by_name(product_name):
+    for product in products:
+        if product['name'].lower() == product_name.lower():
+            return product
+    return {"error": "Product Not Found"}
 
 
 if __name__ =="__main__":
