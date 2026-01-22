@@ -1,5 +1,4 @@
-from flask import Flask 
-
+from flask import Flask,request
 app = Flask(__name__)
 
 products =[
@@ -39,6 +38,15 @@ def get_product_by_search(query):
         if product['name'].lower().startswith(query.lower()): 
             return product
     return {"Error : Product Not Found"} 
+
+@app.route('/add_product',methods=['POST'])
+def add_product():
+    product = request.get_json()
+    
+    product['id'] =products[-1]['id']+1
+    products.append(product)
+    return{'message':'product added successfully','product':product}
+    
 
 # @app.route('/products/search')
 # def search_products():
