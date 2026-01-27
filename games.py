@@ -30,15 +30,15 @@ while True:
             sys.exit()
 
     keys = pygame.key.get_pressed()
-    if keys[pygame.K_LEFT]:
+    if keys[pygame.K_LEFT] or keys[pygame.K_a]:
         player_x -= player_speed
-    if keys[pygame.K_RIGHT]:
+    if keys[pygame.K_RIGHT] or keys[pygame.K_d]:
         player_x += player_speed
-    if keys[pygame.K_UP]:
+    if keys[pygame.K_UP] or keys[pygame.K_w]:
         player_y -= player_speed
-    if keys[pygame.K_DOWN]:
+    if keys[pygame.K_DOWN] or keys[pygame.K_s]:
         player_y += player_speed
-
+    
     player_rect = pygame.Rect(player_x, player_y, player_size, player_size)
     coin_rect = pygame.Rect(coin_x, coin_y, coin_size, coin_size)
 
